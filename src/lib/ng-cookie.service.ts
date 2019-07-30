@@ -7,6 +7,12 @@ export class NgCookieService {
 
     constructor() { }
 
+    /**
+     * Setting cookie value by name
+     * @param name name of cookie
+     * @param value cookie value
+     * @param AddExpires add expiration (date or seconds) to cookie
+     */
     public setCookie(name: string, value: string, addExpires: Date | number) {
 
         let addExpiresStr = '';
