@@ -34,6 +34,10 @@ export class NgCookieService {
         document.cookie = newCookie;
     }
 
+    /**
+     * Getting cookie value by name
+     * @param name name of cookie
+     */
     public getCookie(name: string): string {
         const matches = document.cookie.match(new RegExp(
             '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
@@ -41,20 +45,37 @@ export class NgCookieService {
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
 
+    /**
+     * Delete cookie by name
+     * @param name name of cookie
+     */
     public deleteCookie(name: string): void {
         this.setCookie(name, '', -1);
     }
 
-    public setCookieExpDate(cookieName: string, date: Date) {
+    /**
+     * Setting cookie expiration date
+     * @param name name of cookie
+     */
+    public setCookieExpDate(name: string, date: Date) {
         document.cookie += '; expires=' + date.toUTCString();
     }
 
-    public addCookieExpTime(cookieName: string, seconds: number) {
+    /**
+     * Adding expiration time to cookie
+     * @param name name of cookie
+     * @param seconds seconds which will be added to cookie
+     */
+    public addCookieExpTime(name: string, seconds: number) {
         const date = new Date();
         date.setSeconds(date.getSeconds() + seconds);
         document.cookie += '; expires=' + date.toUTCString();
     }
 
+    /**
+     * Check for existing cookie in document.cookie
+     * @param name name of cookie which need checking
+     */
     public cookieExists(name: string): boolean {
         return this.getCookie(name) == null ? false : true;
     }
