@@ -1,5 +1,5 @@
 ## Description
-simplest functions for manipulation cookie using the services approach in Angular
+simplest functions for manipulation cookie using the services approach in [Angular](https://angular.io)
 
 ## Installation
 
